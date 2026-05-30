@@ -1,1 +1,15 @@
+name: AOSP Build Testi
+on: [push]
+jobs:
+  ubuntu-testi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Klonla
+        uses: actions/checkout@v4
 
+      - name: Sunucu Bilgilerini Yazdir
+        run: |
+          echo "Selam! GitHub Actions Ubuntu sunucusu başarıyla başlatıldı."
+          echo "Şu an çalışan işletim sistemi: Linux Ubuntu"
+          echo "Android 4 AOSP derleme hazırlıkları için sunucu hazır!"
+          
