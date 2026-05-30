@@ -8,7 +8,18 @@ jobs:
       - name: Depoyu Klonla
         uses: actions/checkout@v4
 
+      # 1. Önce hafızadaki eski aosp klasörünü geri yükle (Eğer varsa)
+      - name: Cache AOSP Repository
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/work/AOSP-Build/AOSP-Build/aosp
+          key: aosp-repository-cache-${{ github.run_id }}
+          restore-keys: |
+            aosp-repository-cache-
+
+      # 2. Sonra canlı terminali başlat
       - name: Canlı Terminal Sunucusunu Başlat
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: false
+          
